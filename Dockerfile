@@ -14,6 +14,11 @@ ENV ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID
 ENV ARM_TENANT_ID=$ARM_TENANT_ID
 ENV ARM_ACCESS_KEY=$ARM_ACCESS_KEY
 
+WORKDIR $GOPATH/src/app/test/
+
+COPY *.tf $GOPATH/src/app
+COPY test $GOPATH/src/app/test
+
 RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
     && curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
     && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
@@ -21,8 +26,6 @@ RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
     && apt-get install terraform=${tf_version} 
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash 
-
-WORKDIR $GOPATH/src/app/test/
 
 CMD ./testgo.sh
 
