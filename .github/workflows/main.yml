@@ -29,7 +29,7 @@ jobs:
             ARM_ACCESS_KEY=${{ secrets.AZURE_ARM_ACCESS_KEY_W }}
       
       - name: run
-        uses: docker/docker-run-action@v3
+        uses: addnab/docker-run-action@v3
         with:
           options: -v ${{ github.workspace }}:/go/src/app
           image: hustakin/hello-world-docker-action:latest
