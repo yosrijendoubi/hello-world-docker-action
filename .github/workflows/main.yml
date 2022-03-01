@@ -27,3 +27,11 @@ jobs:
             ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID_W }}
             ARM_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID_W }}
             ARM_ACCESS_KEY=${{ secrets.AZURE_ARM_ACCESS_KEY_W }}
+      
+      - name: run
+        uses: addnab/docker-run-action@v3
+        with:
+          options: -v ${{ github.workspace }}:/go/src/app
+          image: hustakin/hello-world-docker-action:latest
+          run: echo "hello world"
+      
