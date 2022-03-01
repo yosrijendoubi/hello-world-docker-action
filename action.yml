@@ -1,10 +1,27 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
+  ARM_CLIENT_ID:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
+
+  ARM_CLIENT_SECRET:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+
+  ARM_SUBSCRIPTION_ID:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+
+  ARM_TENANT_ID:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'
