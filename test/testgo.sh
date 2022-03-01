@@ -1,3 +1,1 @@
- export SUBSCRIPTION_ID="your sub_id"
-go mod init "tftest"
-go test -v
+go test -v $PWD/verifyBackend_test.go
