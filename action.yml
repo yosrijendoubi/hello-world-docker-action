@@ -12,4 +12,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.ARM_CLIENT_ID }}
+    - ${{ inputs.ARM_CLIENT_SECRET }}
+    - ${{ inputs.ARM_SUBSCRIPTION_ID }}
+    - ${{ inputs.ARM_TENANT_ID }}
+    - ${{ inputs.ARM_ACCESS_KEY }}
