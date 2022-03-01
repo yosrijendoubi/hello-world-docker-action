@@ -26,4 +26,4 @@ RUN az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} --t
 
 CMD ./testgo.sh
 
-WORKDIR $GOPATH/src/app/test/ 
+WORKDIR $GOPATH/src/app/test/
