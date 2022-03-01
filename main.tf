@@ -7,7 +7,7 @@ terraform {
   }
  backend "azurerm" {
     subscription_id      = "47bb1c58-ee41-477f-9ba8-ef0d878cfb29"
-    storage_account_name = "yosristorage8"
+    storage_account_name = "yosristorage5"
     container_name       = "edge"
     key                  = "terraform.tfstate"
     resource_group_name  = "iotStorageYosri"

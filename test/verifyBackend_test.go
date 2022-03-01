@@ -15,7 +15,7 @@ func TestTerrafromVerifyBackend(t *testing.T) {
 
 	// website::tag::3:: Run `terraform output` to get the values of output variables
 	resourceGroupName := "iotStorageYosri"
-	storageAccountName := "yosristorage5"
+	storageAccountName := "yosristorage"
 	storageBlobContainerName := "edge"
 
 	// website::tag::4:: Verify storage account properties and ensure it matches the output.
