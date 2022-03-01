@@ -17,7 +17,7 @@ jobs:
           ARM_CLIENT_SECRET: 'wO-JpnjUr5xFCjNn3XzSv~D2KVvwMpk.v3',
           ARM_SUBSCRIPTION_ID: '47bb1c58-ee41-477f-9ba8-ef0d878cfb29',
           ARM_TENANT_ID: '77e30fb9-ddb4-4a65-a17c-96d895261ec5',
-          ARM_ACCESS_KEY: 'e47+5cSqcXeYEtHMMfd05/fdBagS4f0Bh8KnXUhKzIHn0ZbJie5IIkPSWtzYp+/3uQuSCf4Y2sMdBMUI2xYZaw==',
+          ARM_ACCESS_KEY: 'e47+5cSqcXeYEtHMMfd05/fdBagS4f0Bh8KnXUhKzIHn0ZbJie5IIkPSWtzYp+/3uQuSCf4Y2sMdBMUI2xYZaw=='
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
