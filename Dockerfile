@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash 
 
+WORKDIR $GOPATH/src/app/test/
+
 CMD ./testgo.sh
 
-WORKDIR $GOPATH/src/app/test/
