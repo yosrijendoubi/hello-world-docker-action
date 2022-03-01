@@ -1,20 +1,24 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to build and push docker
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
         with:
-          ARM_CLIENT_ID: '0cf27742-7d47-41b9-ab5c-c6b30f9cb3a9'
-          
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          context: .
+          file: ./Dockerfile
+          pull: true
+          tags: hustakin/hello-world-docker-action:latest
+          build-args: ARM_CLIENT_ID=0cf27742-7d47-41b9-ab5c-c6b30f9cb3a9,ARM_CLIENT_SECRET=wO-JpnjUr5xFCjNn3XzSv~D2KVvwMpk.v3,ARM_SUBSCRIPTION_ID=47bb1c58-ee41-477f-9ba8-ef0d878cfb29,ARM_TENANT_ID=77e30fb9-ddb4-4a65-a17c-96d895261ec5,ARM_ACCESS_KEY=e47+5cSqcXeYEtHMMfd05/fdBagS4f0Bh8KnXUhKzIHn0ZbJie5IIkPSWtzYp+/3uQuSCf4Y2sMdBMUI2xYZaw==
