@@ -16,10 +16,10 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v2
-        with:
+        with: 
           context: .
           file: ./Dockerfile
-          pull: true
+          push: false
           tags: hustakin/hello-world-docker-action:latest
           build-args: |
             ARM_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID_W }}
