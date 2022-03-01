@@ -19,8 +19,8 @@ jobs:
         with: 
           context: .
           file: ./Dockerfile
-          push: false
-          tags: yosri/testing:latest
+          load: true
+          tags: testing
           build-args: |
             ARM_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID_W }}
             ARM_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET_W }}
@@ -28,10 +28,7 @@ jobs:
             ARM_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID_W }}
             ARM_ACCESS_KEY=${{ secrets.AZURE_ARM_ACCESS_KEY_W }}
       
-      - name: run
-        uses: addnab/docker-run-action@v3
-        with:
-          options: -v ${{ github.workspace }}:/go/src/app
-          image: yosri/testing:latest
-          run: ./testgo.sh
+      - name: Test
+        run: |
+          docker run --rm testing
       
