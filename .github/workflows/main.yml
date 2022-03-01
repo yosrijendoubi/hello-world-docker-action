@@ -20,7 +20,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: hustakin/hello-world-docker-action:latest
+          tags: yosri/testing:latest
           build-args: |
             ARM_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID_W }}
             ARM_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET_W }}
@@ -32,6 +32,6 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           options: -v ${{ github.workspace }}:/go/src/app
-          image: hustakin/hello-world-docker-action:latest
+          image: yosri/testing:latest
           run: ./testgo.sh
       
