@@ -16,5 +16,5 @@ jobs:
 
       - name: Test
         run: |
-          docker run --rm --env-file my-env.txt -v ${GITHUB_WORKSPACE}:/go/src/app yosrijendoubi/sec /bin/bash ./testgo.sh
+          docker run --rm --env-file .env -v ${GITHUB_WORKSPACE}:/go/src/app yosrijendoubi/sec /bin/bash ./testgo.sh
       
