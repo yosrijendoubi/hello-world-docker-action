@@ -1,5 +1,4 @@
-FROM golang:1.16
-LABEL maintainer="AustinCloudGuru"
+FROM mod
 
 ARG tf_version=1.0.0
 ARG ARM_CLIENT_ID
@@ -16,18 +15,9 @@ ENV ARM_ACCESS_KEY=$ARM_ACCESS_KEY
 
 WORKDIR $GOPATH/src/app/test/
 
-COPY *.tf $GOPATH/src/app
-COPY test $GOPATH/src/app/test
+#COPY *.tf $GOPATH/src/app
+#COPY ./test/*.go $GOPATH/src/app/test/
+#COPY ./test/*.sh $GOPATH/src/app/test/
 
-RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
-    && curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
-    && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
-    && apt-get update \
-    && apt-get install terraform=${tf_version} 
-
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash 
-
-RUN go mod download
-
-CMD ./testgo.sh
+CMD bash
 
